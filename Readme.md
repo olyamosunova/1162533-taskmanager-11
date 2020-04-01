@@ -1,7 +1,7 @@
 # Личный проект «Менеджер задач» [![Build status][travis-image]][travis-url]
 
 * Студент: [Ольга Мосунова](https://up.htmlacademy.ru/ecmascript/11/user/1162533).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Белокур](https://up.htmlacademy.ru/ecmascript/11/user/256757).
 
 ---
 
