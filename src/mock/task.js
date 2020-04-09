@@ -1,5 +1,7 @@
 import {COLORS} from "../const.js";
 
+const PROBABILITY = 0.5;
+
 const DescriptionItems = [
   `Изучить теорию`,
   `Сделать домашку`,
@@ -38,20 +40,26 @@ const getRandomDate = () => {
 
 const generateRepeatingDays = () => {
   return Object.assign({}, DefaultRepeatingDays, {
-    "mo": Math.random() > 0.5,
+    "mo": Math.random() > PROBABILITY,
+    "tu": Math.random() > PROBABILITY,
+    "we": Math.random() > PROBABILITY,
+    "th": Math.random() > PROBABILITY,
+    "fr": Math.random() > PROBABILITY,
+    "sa": Math.random() > PROBABILITY,
+    "su": Math.random() > PROBABILITY,
   });
 };
 
 const generateTask = () => {
-  const dueDate = Math.random() > 0.5 ? null : getRandomDate();
+  const dueDate = Math.random() > PROBABILITY ? null : getRandomDate();
 
   return {
     description: getRandomArrayItem(DescriptionItems),
     dueDate,
     repeatingDays: dueDate ? DefaultRepeatingDays : generateRepeatingDays(),
     color: getRandomArrayItem(COLORS),
-    isArchive: Math.random() > 0.5,
-    isFavorite: Math.random() > 0.5,
+    isArchive: Math.random() > PROBABILITY,
+    isFavorite: Math.random() > PROBABILITY,
   };
 };
 
