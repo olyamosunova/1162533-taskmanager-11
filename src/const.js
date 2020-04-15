@@ -16,3 +16,7 @@ export const MONTH_NAMES = [
   `November`,
   `December`,
 ];
+
+export const SORT_TITLES = [`SORT BY DEFAULT`, `SORT BY DATE up`, `SORT BY DATE down`];
+
+export const MENU_TITLES = [`TASKS`, `STATISTICS`];
