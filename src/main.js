@@ -26,7 +26,7 @@ const renderTask = (taskListElement, task) => {
   };
 
   const onEscKeyDown = (evt) => {
-    const isEscCode = evt.key === 27;
+    const isEscCode = evt.keyCode === 27;
 
     if (isEscCode) {
       replaceEditToTask();
