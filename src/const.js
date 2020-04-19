@@ -1,8 +1,13 @@
-export const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
+const RenderPosition = {
+  AFTERBEGIN: `afterbegin`,
+  BEFOREND: `beforend`
+};
 
-export const DAYS = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
+const COLORS = [`black`, `yellow`, `blue`, `green`, `pink`];
 
-export const MONTH_NAMES = [
+const DAYS = [`mo`, `tu`, `we`, `th`, `fr`, `sa`, `su`];
+
+const MONTH_NAMES = [
   `January`,
   `February`,
   `March`,
@@ -17,6 +22,6 @@ export const MONTH_NAMES = [
   `December`,
 ];
 
-export const SORT_TITLES = [`SORT BY DEFAULT`, `SORT BY DATE up`, `SORT BY DATE down`];
+const SORT_TITLES = [`SORT BY DEFAULT`, `SORT BY DATE up`, `SORT BY DATE down`];
 
-export const MENU_TITLES = [`TASKS`, `STATISTICS`];
+export {RenderPosition, COLORS, DAYS, MONTH_NAMES, SORT_TITLES};

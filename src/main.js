@@ -9,7 +9,8 @@ import LoadMoreButtonComponent from "./components/load-more-button.js";
 import SortComponent from "./components/sort.js";
 import {generateFilters} from "./mock/filter.js";
 import {generateTasks} from "./mock/task.js";
-import {render, RenderPosition} from "./utils.js";
+import {render} from "./utils.js";
+import {RenderPosition} from "./const.js";
 
 const TASK_COUNT = 20;
 const SHOWING_TASKS_COUNT_ON_START = 8;
