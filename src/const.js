@@ -22,6 +22,4 @@ const MONTH_NAMES = [
   `December`,
 ];
 
-const SORT_TITLES = [`SORT BY DEFAULT`, `SORT BY DATE up`, `SORT BY DATE down`];
-
-export {RenderPosition, COLORS, DAYS, MONTH_NAMES, SORT_TITLES};
+export {RenderPosition, COLORS, DAYS, MONTH_NAMES};
