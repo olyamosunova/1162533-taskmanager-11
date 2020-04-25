@@ -85,6 +85,7 @@ export default class BoardController {
         return;
       }
 
+      remove(this._loadMoreButtonComponent);
       render(container, this._loadMoreButtonComponent, RenderPosition.BEFOREND);
 
       this._loadMoreButtonComponent.setClickHandler(() => {
