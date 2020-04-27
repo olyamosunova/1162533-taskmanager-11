@@ -33,9 +33,10 @@ export default class TaskController {
       document.addEventListener(`keydown`, this._onEscKeyDown);
     });
 
-    this._taskEditComponent.setSubmitHandler((evt) => {
-      evt.preventDefault();
-      this._replaceEditToTask();
+    this._taskComponent.setArchiveButtonClickHandler(() => {
+      this._onDataChange(this, task, Object.assign({}, task, {
+        isArchive: !task.isArchive,
+      }));
     });
 
     this._taskComponent.setFavoritesButtonClickHandler(() => {
@@ -44,10 +45,9 @@ export default class TaskController {
       }));
     });
 
-    this._taskComponent.setArchiveButtonClickHandler(() => {
-      this._onDataChange(this, task, Object.assign({}, task, {
-        isArchive: !task.isArchive,
-      }));
+    this._taskEditComponent.setSubmitHandler((evt) => {
+      evt.preventDefault();
+      this._replaceEditToTask();
     });
 
     if (oldTaskEditComponent && oldTaskComponent) {
@@ -64,17 +64,17 @@ export default class TaskController {
     }
   }
 
-  _replaceTaskToEdit() {
-    this._onViewChange();
-    replace(this._taskEditComponent, this._taskComponent);
-    this._mode = Mode.EDIT;
-  }
-
   _replaceEditToTask() {
     document.removeEventListener(`keydown`, this._onEscKeyDown);
     this._taskEditComponent.reset();
     replace(this._taskComponent, this._taskEditComponent);
     this._mode = Mode.DEFAULT;
+  }
+
+  _replaceTaskToEdit() {
+    this._onViewChange();
+    replace(this._taskEditComponent, this._taskComponent);
+    this._mode = Mode.EDIT;
   }
 
   _onEscKeyDown(evt) {
