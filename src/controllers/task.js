@@ -51,8 +51,8 @@ export default class TaskController {
     });
 
     if (oldTaskEditComponent && oldTaskComponent) {
-      render(this._taskComponent, oldTaskComponent);
-      render(this._taskEditComponent, oldTaskEditComponent);
+      replace(this._taskComponent, oldTaskComponent);
+      replace(this._taskEditComponent, oldTaskEditComponent);
     } else {
       render(this._container, this._taskComponent, RenderPosition.BEFOREND);
     }
