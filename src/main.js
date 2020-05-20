@@ -10,31 +10,30 @@ import {RenderPosition} from "./const.js";
 
 const TASK_COUNT = 20;
 
-const siteMainElement = document.querySelector(`.main`);
-const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
-const siteMenuComponent = new SiteMenuComponent();
-render(siteHeaderElement, siteMenuComponent, RenderPosition.BEFOREND);
-
-const tasks = generateTasks(TASK_COUNT);
-const tasksModel = new TasksModel();
-tasksModel.setTasks(tasks);
-
-const filterController = new FilterController(siteMainElement, tasksModel);
-filterController.render();
-
-const boardComponent = new BoardComponent();
-render(siteMainElement, boardComponent, RenderPosition.BEFOREND);
-
-const boardController = new BoardController(boardComponent, tasksModel);
-boardController.render();
-
 const dateTo = new Date();
 const dateFrom = (() => {
   const d = new Date(dateTo);
   d.setDate(d.getDate() - 7);
   return d;
 })();
+
+const tasks = generateTasks(TASK_COUNT);
+const tasksModel = new TasksModel();
+tasksModel.setTasks(tasks);
+
+const siteMainElement = document.querySelector(`.main`);
+const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
+const siteMenuComponent = new SiteMenuComponent();
 const statisticsComponent = new StatisticsComponent({tasks: tasksModel, dateFrom, dateTo});
+
+const boardComponent = new BoardComponent();
+const boardController = new BoardController(boardComponent, tasksModel);
+const filterController = new FilterController(siteMainElement, tasksModel);
+
+render(siteHeaderElement, siteMenuComponent, RenderPosition.BEFOREND);
+filterController.render();
+render(siteMainElement, boardComponent, RenderPosition.BEFOREND);
+boardController.render();
 render(siteMainElement, statisticsComponent, RenderPosition.BEFOREND);
 statisticsComponent.hide();
 
